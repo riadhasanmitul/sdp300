@@ -17,8 +17,8 @@
 <body>
     <style>
         .answer-box label {
-  padding: 10px 15px !important;
-}
+            padding: 10px 15px !important;
+        }
     </style>
     <!-- Header -->
     <nav style="background-color: #1BB193;" class="navbar navbar-expand-sm p-2">
@@ -36,14 +36,17 @@
                 <li class="nav-item px-1">
                     <a style="color: #fff !important;" class="nav-link active" aria-current="page" href="about.php">About Us</a>
                 </li>
-                
+                <li class="nav-item px-1">
+                    <a style="color: #fff !important;" class="nav-link active" aria-current="page" href="references.php">References</a>
+                </li>
+
 
             </ul>
         </div>
         <div>
-        <a href="about.php" class="call-us-link">
-    <button style="background-color: #fff; color: #000; padding: 10px 40px; font-weight: 600; font-size: 20px;" class="btn btn-outline-success" type="submit">CALL US!</button>
-</a>
+            <a href="about.php" tel="+008" class="call-us-link">
+                <button style="background-color: #fff; color: #000; padding: 10px 40px; font-weight: 600; font-size: 20px;" class="btn btn-outline-success" type="submit">CALL US!</button>
+            </a>
 
         </div>
     </nav>
@@ -53,10 +56,17 @@
         <div class="container">
             <div class="row">
                 <!-- Left Column -->
-                <div class="col-lg-6 mb-4">
+                <div class="col-lg-6 mb-4 hero-left">
                     <h2 style="font-size: 60px;" class="display-4">Understand Your Anxiety</h2>
+                    <div class="reference">
+                        <h2>References</h2>
+                        <a class="references" href="https://adaa.org/sites/default/files/GAD-7_Anxiety-updated_0.pdf" target="_blank">https://adaa.org/sites/default/files/GAD-7_Anxiety-updated_0.pdf</a>
+                        <a class="references" href="https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/410326" target="_blank">https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/410326</a>
+                        <br><a class="references" href="references.php"> ..See More</a>
+                    </div>
                     <p class="lead">
-                        Complete the GAD-7 questionnaire to evaluate your anxiety level. Answer each question honestly based on your experience over the past two weeks.
+                        The Generalized Anxiety Disorder-7 (GAD-7) is a widely used self-assessment tool designed to screen for and measure the severity of generalized anxiety disorder (GAD). Developed by Spitzer et al. in 2006, it is a validated instrument used in both clinical and research settings.
+                        The questionnaire consists of 7 items, each addressing a specific symptom of anxiety. Respondents rate the frequency of their symptoms over the past two weeks on a scale ranging from 0 (Not at all) to 3 (Nearly every day). The total score determines the severity of anxiety, helping guide clinical decisions or self-awareness about mental health.
                     </p>
                 </div>
 
@@ -80,7 +90,7 @@
                                         <input type="number" id="age" name="age" class="form-control" placeholder="Enter your age" required>
                                     </div>
                                 </div>
-                                
+
                                 <div class="mb-4">
                                     <label for="country" class="form-label fw-bold">Country</label>
                                     <input list="countries" id="country" name="country" class="form-control" placeholder="Enter your Country" required>
@@ -496,18 +506,18 @@
             let feedback = "";
             let recommendation = "";
             if (totalScore <= 4) {
-            feedback = "Minimal anxiety.";
-            recommendation = "You're doing well! Keep maintaining a healthy lifestyle and consider practices like mindfulness or regular exercise to stay in balance.";
-        } else if (totalScore <= 9) {
-            feedback = "Mild anxiety.";
-            recommendation = "It may help to improve your sleep, reduce stress, or engage in relaxation techniques such as yoga or meditation. Keep an eye on your feelings and consider talking to someone if it persists.";
-        } else if (totalScore <= 14) {
-            feedback = "Moderate anxiety.";
-            recommendation = "Consider reaching out to a mental health professional or counselor for support. Building a routine and practicing stress management strategies may also help.";
-        } else if (totalScore <= 21) {
-            feedback = "Severe anxiety.";
-            recommendation = "It's important to seek help from a doctor or psychologist. Severe anxiety can significantly impact your quality of life, but professional support and treatment can make a difference.";
-        }
+                feedback = "Minimal anxiety.";
+                recommendation = "You're doing well! Keep maintaining a healthy lifestyle and consider practices like mindfulness or regular exercise to stay in balance.";
+            } else if (totalScore <= 9) {
+                feedback = "Mild anxiety.";
+                recommendation = "It may help to improve your sleep, reduce stress, or engage in relaxation techniques such as yoga or meditation. Keep an eye on your feelings and consider talking to someone if it persists.";
+            } else if (totalScore <= 14) {
+                feedback = "Moderate anxiety.";
+                recommendation = "Consider reaching out to a mental health professional or counselor for support. Building a routine and practicing stress management strategies may also help.";
+            } else if (totalScore <= 21) {
+                feedback = "Severe anxiety.";
+                recommendation = "It's important to seek help from a doctor or psychologist. Severe anxiety can significantly impact your quality of life, but professional support and treatment can make a difference.";
+            }
 
             // Show score and feedback
             document.getElementById('score').innerText = totalScore;

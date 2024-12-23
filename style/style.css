@@ -22,8 +22,14 @@
     background-color: #28a745; /* Change background color on hover */
     color: #fff; /* Change text color on hover */
 }
-
-
+.hero-left{
+    margin-top: -100px;
+}
+.references{
+    background-color: #2624246c;
+    color: rgb(11, 11, 11);
+    margin: 2px 0;
+}
 
 p.fw-bold {
     font-size: 1.4rem !important;
