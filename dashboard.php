@@ -57,14 +57,30 @@ $total_submissions = $total_row['total_submissions'];
             <tr>
                 <th>Country</th>
                 <th>Average GAD-7 Score</th>
+                <th>Feedback</th>
+
             </tr>
         </thead>
         <tbody>
             <?php
-            while($row = mysqli_fetch_assoc($average_score_result)) {
+            while ($row = mysqli_fetch_assoc($average_score_result)) {
+                $average_score = round($row['average_score'], 2);
+
+                // Determine feedback based on average score
+                if ($average_score <= 4) {
+                    $feedback = "Minimal Anxiety";
+                } elseif ($average_score <= 9) {
+                    $feedback = "Mild Anxiety";
+                } elseif ($average_score <= 14) {
+                    $feedback = "Moderate Anxiety";
+                } else {
+                    $feedback = "Severe Anxiety";
+                }
+
                 echo "<tr>";
                 echo "<td>" . htmlspecialchars($row['country']) . "</td>";
-                echo "<td>" . round($row['average_score'], 2) . "</td>";
+                echo "<td>" . $average_score . "</td>";
+                echo "<td>" . $feedback . "</td>";
                 echo "</tr>";
             }
             ?>
@@ -76,7 +92,7 @@ $total_submissions = $total_row['total_submissions'];
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f7f6;
-    margin: 0;
+    margin: 0 0 50px 0;
     padding: 0;
 }
 

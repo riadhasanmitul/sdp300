@@ -9,10 +9,17 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style/style.css">
+    <link rel="icon" type="image/x-icon" href="img/anxiety-icon.png">
+
 
 </head>
 
 <body>
+    <style>
+        .answer-box label {
+  padding: 10px 15px !important;
+}
+    </style>
     <!-- Header -->
     <nav style="background-color: #1BB193;" class="navbar navbar-expand-sm p-2">
         <div class="container-fluid col">
@@ -29,9 +36,7 @@
                 <li class="nav-item px-1">
                     <a style="color: #fff !important;" class="nav-link active" aria-current="page" href="about.php">About Us</a>
                 </li>
-                <li class="nav-item px-1">
-                    <a style="color: #fff !important;" class="nav-link active" aria-current="page" href="admin.php">Admin</a>
-                </li>
+                
 
             </ul>
         </div>
@@ -65,14 +70,17 @@
                     <section class="py-5 questions-container">
                         <div class="container">
                             <form id="gad7-form" name="gad7" method="POST" action="index.php">
-                                <div class="mb-4">
-                                    <label for="username" class="form-label fw-bold">Name</label>
-                                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter your name" required>
+                                <div class="d-flex flex-wrap gap-3">
+                                    <div style="width: 48%;" class="mb-4">
+                                        <label for="username" class="form-label fw-bold">Name</label>
+                                        <input type="text" id="username" name="username" class="form-control" placeholder="Enter your name" required>
+                                    </div>
+                                    <div style="width: 48%;" class="mb-4">
+                                        <label for="age" class="form-label fw-bold">Age</label>
+                                        <input type="number" id="age" name="age" class="form-control" placeholder="Enter your age" required>
+                                    </div>
                                 </div>
-                                <div class="mb-4">
-                                    <label for="age" class="form-label fw-bold">Age</label>
-                                    <input type="number" id="age" name="age" class="form-control" placeholder="Enter your age" required>
-                                </div>
+                                
                                 <div class="mb-4">
                                     <label for="country" class="form-label fw-bold">Country</label>
                                     <input list="countries" id="country" name="country" class="form-control" placeholder="Enter your Country" required>
@@ -456,9 +464,10 @@
         </div>
     </section>
 
-    <div id="result-section" class="text-center" style="display: none; padding: 40px; background: #e8f9fa; border-radius: 8px; border: 1px solid #ddd;">
-        <h2>Your GAD-7 Score: <span id="score"></span></h2>
-        <p id="feedback"></p>
+    <div id="result-section" class="text-center" style="display: none; padding: 40px; background: #e8f9fa; border-radius: 8px; border: 1px solid #ddd; position: fixed; bottom: 20px; left: 25%; transform: translateX(-50%); width: 90%; max-width: 600px; box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.2); z-index: 1000;">
+        <h2>Your GAD-7 Score: <strong><span id="score"></span></h2></strong>
+        <p><strong>Feedback:</strong> <span id="feedback"></span></p>
+        <p><strong>Recommendation:</strong> <span id="recommendation"></span></p>
     </div>
 
     <!-- Bootstrap JS -->
@@ -485,19 +494,25 @@
 
             // Determine feedback based on score
             let feedback = "";
+            let recommendation = "";
             if (totalScore <= 4) {
-                feedback = "Minimal anxiety.";
-            } else if (totalScore <= 9) {
-                feedback = "Mild anxiety.";
-            } else if (totalScore <= 14) {
-                feedback = "Moderate anxiety.";
-            } else {
-                feedback = "Severe anxiety.";
-            }
+            feedback = "Minimal anxiety.";
+            recommendation = "You're doing well! Keep maintaining a healthy lifestyle and consider practices like mindfulness or regular exercise to stay in balance.";
+        } else if (totalScore <= 9) {
+            feedback = "Mild anxiety.";
+            recommendation = "It may help to improve your sleep, reduce stress, or engage in relaxation techniques such as yoga or meditation. Keep an eye on your feelings and consider talking to someone if it persists.";
+        } else if (totalScore <= 14) {
+            feedback = "Moderate anxiety.";
+            recommendation = "Consider reaching out to a mental health professional or counselor for support. Building a routine and practicing stress management strategies may also help.";
+        } else if (totalScore <= 21) {
+            feedback = "Severe anxiety.";
+            recommendation = "It's important to seek help from a doctor or psychologist. Severe anxiety can significantly impact your quality of life, but professional support and treatment can make a difference.";
+        }
 
             // Show score and feedback
             document.getElementById('score').innerText = totalScore;
             document.getElementById('feedback').innerText = feedback;
+            document.getElementById('recommendation').innerText = recommendation;
 
             // Show result section
             const resultSection = document.getElementById('result-section');
@@ -550,7 +565,6 @@
         }
     </script>
     <?php
-    session_start();
     include 'connection.php';
 
     // Check if data is received via POST

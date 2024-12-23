@@ -96,7 +96,7 @@ body {
 
 .team-member img {
     width: 100%;
-    height: 250px;
+    height: 200px;
     object-fit: cover;
     border-radius: 50%;
     margin-bottom: 20px;
@@ -138,7 +138,7 @@ body {
     <section class="about-section">
         <div class="container">
             <h1>About Us</h1>
-            <p>We are a team of five passionate developers working together to bring you an interactive mental health survey project. Our goal is to provide users with an insightful GAD-7 score, helping them understand their mental well-being.</p>
+            <p>Discover peace of mind with our Anxiety Assessment App. Designed to help you understand and track your anxiety levels, the app provides a simple yet effective way to assess your mental well-being. With personalized feedback and helpful recommendations, our tool empowers you to take meaningful steps toward managing anxiety. Whether you're seeking clarity or support, we're here to guide you on your journey to a healthier, more balanced life.</p>
         </div>
     </section>
 
@@ -148,45 +148,43 @@ body {
             <div class="team-members">
                 <!-- Team Member 1 -->
                 <div class="team-member">
-                    <img src="img/riad.jpg" alt="Member 1">
+                    <img src="img/65432.png" alt="Member 1">
                     <h3>Md Riad Hasan</h3>
-                    <p>Role: Project Lead</p>
-                    <p>Short bio: I am passionate about competitive programming and leading our team to build this mental health survey project. With a deep interest in coding and problem-solving, I am excited to contribute to the success of this project..</p>
+                    <p>Role: Project Lead/Backend Developer</p>
+                    
                 </div>
                 <!-- Team Member 2 -->
                 <div class="team-member">
-                    <img src="member2.jpg" alt="Member 2">
-                    <h3>Member 2</h3>
-                    <p>Role: Backend Developer</p>
-                    <p>Short bio or description about Member 2.</p>
+                    <img src="img/65432.png" alt="Member 2">
+                    <h3>Sourov</h3>
+                    <p>Role: Frontend Developer</p>
+
                 </div>
                 <!-- Team Member 3 -->
                 <div class="team-member">
-                    <img src="member3.jpg" alt="Member 3">
-                    <h3>Member 3</h3>
-                    <p>Role: Frontend Developer</p>
-                    <p>Short bio or description about Member 3.</p>
+                    <img src="img/65432.png" alt="Member 3">
+                    <h3>Kawsar Jomadder</h3>
+                    <p>Role: Analyzer</p>
+                    
                 </div>
                 <!-- Team Member 4 -->
                 <div class="team-member">
-                    <img src="member4.jpg" alt="Member 4">
-                    <h3>Member 4</h3>
+                    <img src="img/65432.png" alt="Member 4">
+                    <h3>Sajib Hassan</h3>
                     <p>Role: Designer</p>
-                    <p>Short bio or description about Member 4.</p>
+                   
                 </div>
                 <!-- Team Member 5 -->
                 <div class="team-member">
-                    <img src="member5.jpg" alt="Member 5">
-                    <h3>Member 5</h3>
+                    <img src="img/65432.png" alt="Member 5">
+                    <h3>Sarika</h3>
                     <p>Role: Tester</p>
-                    <p>Short bio or description about Member 5.</p>
+                   
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <p>&copy; 2024 Team Project. All rights reserved.</p>
-    </footer>
+  
 </body>
 </html>

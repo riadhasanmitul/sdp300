@@ -18,13 +18,6 @@ if(isset($_REQUEST['login_btn'])) {
         echo "<script>alert('You have entered wrong emailid or password.');</script>";
     }
 }
-session_start();
-
-if(isset($_SESSION['id'])) {
-    header("Location: dashboard.php");
-    exit();
-}
-session_start();
 
 // Check if the user is already logged in
 if(isset($_SESSION['id'])) {
@@ -45,7 +38,7 @@ if(isset($_SESSION['id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>GAD-7 Questionnaire</title>
+  <title>GAD-7 ADMIN LOGIN</title>
   <link href="style/login.css" rel="stylesheet">
 </head>
 <body style="background-image: url('https://img.freepik.com/free-photo/top-view-sad-face-with-paper-blue-monday_23-2148756165.jpg?t=st=1733636144~exp=1733639744~hmac=c9933d3c03e8d4e7137b2a6b0e81ec82e37926beceef6349422f45ccab52102c&w=740') !important; background-size: cover;
@@ -54,7 +47,7 @@ if(isset($_SESSION['id'])) {
     <div class="container">
     <div style="margin-top: 200px !important;" class="card card-login mx-auto mt-5">
       <div class="card-header">
-       <h2><center>GAD-7 Questionnaire</center></h2>
+       <h2><center>GAD-7 ADMIN LOGIN</center></h2>
       </div>
       <div class="card-body">
         <form name="login"  method="post" action="">
