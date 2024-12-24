@@ -1,15 +1,31 @@
-
-
 <div class="container">
     <a href="index.php" class="btn btn-info">&#8666; Back to Home</a>
     <a href="logout.php" class="btn btn-danger">Logout</a>
+    <!-- Add button for generating the statistics report -->
+    <form action="generate_report.php" method="POST" style="display: inline-block;">
+        <button type="submit" class="btn btn-primary">Generate Statistics Report</button>
+    </form>
 </div>
+
 <?php
 session_start();
 if (!isset($_SESSION['id'])) {
     header("Location: admin.php");
     exit();
 }
+
+include 'connection.php';
+
+$stats_query = "SELECT country, COUNT(*) as submission_count FROM gad7_submissions GROUP BY country ORDER BY submission_count DESC LIMIT 10";
+$result = mysqli_query($conn, $stats_query);
+
+$average_score_query = "SELECT country, AVG(gad7_score) as average_score FROM gad7_submissions GROUP BY country";
+$average_score_result = mysqli_query($conn, $average_score_query);
+
+$total_submissions_query = "SELECT COUNT(*) as total_submissions FROM gad7_submissions";
+$total_result = mysqli_query($conn, $total_submissions_query);
+$total_row = mysqli_fetch_assoc($total_result);
+$total_submissions = $total_row['total_submissions'];
 ?>
 
 <?php
@@ -26,27 +42,6 @@ $total_submissions = $total_row['total_submissions'];
 
 ?>
 
-<div class="container">
-    <h2>Top 10 Countries by Submission Count</h2>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Country</th>
-                <th>Submission Count</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            while($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
-                echo "<td>" . htmlspecialchars($row['country']) . "</td>";
-                echo "<td>" . $row['submission_count'] . "</td>";
-                echo "</tr>";
-            }
-            ?>
-        </tbody>
-    </table>
-</div>
 <div class="container" style="font-size: 25px;">
     <h2>Submission Statistics</h2>
     <p><strong>Total Submissions:</strong> <?php echo $total_submissions; ?></p>
@@ -81,6 +76,27 @@ $total_submissions = $total_row['total_submissions'];
                 echo "<td>" . htmlspecialchars($row['country']) . "</td>";
                 echo "<td>" . $average_score . "</td>";
                 echo "<td>" . $feedback . "</td>";
+                echo "</tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <h2>Top 10 Countries by Submission Count</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Submission Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            while($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td>" . htmlspecialchars($row['country']) . "</td>";
+                echo "<td>" . $row['submission_count'] . "</td>";
                 echo "</tr>";
             }
             ?>

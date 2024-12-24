@@ -44,8 +44,8 @@
             </ul>
         </div>
         <div>
-            <a href="about.php" tel="+008" class="call-us-link">
-                <button style="background-color: #fff; color: #000; padding: 10px 40px; font-weight: 600; font-size: 20px;" class="btn btn-outline-success" type="submit">CALL US!</button>
+            <a href="contact_us.php" tel="+008" class="call-us-link">
+                <button style="background-color: #fff; color: #000; padding: 10px 40px; font-weight: 600; font-size: 20px;" class="btn btn-outline-success" type="submit">Contact US!</button>
             </a>
 
         </div>
@@ -59,7 +59,7 @@
                 <div class="col-lg-6 mb-4 hero-left">
                     <h2 style="font-size: 60px;" class="display-4">Understand Your Anxiety</h2>
                     <div class="reference">
-                        <h2>References</h2>
+                        <h3>References</h3>
                         <a class="references" href="https://adaa.org/sites/default/files/GAD-7_Anxiety-updated_0.pdf" target="_blank">https://adaa.org/sites/default/files/GAD-7_Anxiety-updated_0.pdf</a>
                         <a class="references" href="https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/410326" target="_blank">https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/410326</a>
                         <br><a class="references" href="references.php"> ..See More</a>
