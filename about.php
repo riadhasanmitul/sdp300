@@ -144,7 +144,7 @@ body {
 
     <section class="team-section">
         <div class="container">
-            <h2>Meet The Team</h2>
+            <h2>Meet Our Team</h2>
             <div class="team-members">
                 <!-- Team Member 1 -->
                 <div class="team-member">
@@ -156,29 +156,29 @@ body {
                 <!-- Team Member 2 -->
                 <div class="team-member">
                     <img src="img/65432.png" alt="Member 2">
-                    <h3>Sourov</h3>
+                    <h3>Md Shohanor Rahman Sourov</h3>
                     <p>Role: Frontend Developer</p>
 
                 </div>
                 <!-- Team Member 3 -->
                 <div class="team-member">
                     <img src="img/65432.png" alt="Member 3">
-                    <h3>Kawsar Jomadder</h3>
+                    <h3>Md Kawsar Jomadder</h3>
                     <p>Role: Analyzer</p>
                     
                 </div>
                 <!-- Team Member 4 -->
                 <div class="team-member">
                     <img src="img/65432.png" alt="Member 4">
-                    <h3>Sajib Hassan</h3>
-                    <p>Role: Designer</p>
+                    <h3>Suzaul Hassan Sajib</h3>
+                    <p>Role: Tester</p>
                    
                 </div>
                 <!-- Team Member 5 -->
                 <div class="team-member">
                     <img src="img/65432.png" alt="Member 5">
-                    <h3>Sarika</h3>
-                    <p>Role: Tester</p>
+                    <h3>Najmun Naher</h3>
+                    <p>Role: Designer</p>
                    
                 </div>
             </div>
