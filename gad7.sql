@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 09, 2024 at 06:46 PM
+-- Generation Time: Dec 24, 2024 at 05:43 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `gad7`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact_submissions`
+--
+
+CREATE TABLE `contact_submissions` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `submitted_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contact_submissions`
+--
+
+INSERT INTO `contact_submissions` (`id`, `name`, `email`, `message`, `submitted_at`) VALUES
+(1, 'Riad Hasan', 'rhmitulbd3@gmail.com', 'sfsd sdf', '2024-12-24 16:42:11');
 
 -- --------------------------------------------------------
 
@@ -64,11 +85,18 @@ CREATE TABLE `tbl_users` (
 --
 
 INSERT INTO `tbl_users` (`id`, `user_name`, `emailid`, `password`, `created_at`) VALUES
-(1, 'rhm', 'rhmitulbd3@gmail.com', '1234', '2024-12-08 05:48:47');
+(1, 'rhm', 'rhmitulbd3@gmail.com', '1234', '2024-12-08 05:48:47'),
+(2, 'admin', 'admin@gmail.com', '1234', '2024-12-23 17:35:50');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `contact_submissions`
+--
+ALTER TABLE `contact_submissions`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `gad7_submissions`
@@ -88,6 +116,12 @@ ALTER TABLE `tbl_users`
 --
 
 --
+-- AUTO_INCREMENT for table `contact_submissions`
+--
+ALTER TABLE `contact_submissions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `gad7_submissions`
 --
 ALTER TABLE `gad7_submissions`
@@ -97,7 +131,7 @@ ALTER TABLE `gad7_submissions`
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,5 +1,4 @@
 <?php
-// Handle form submission
 $status = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitize user inputs
@@ -7,19 +6,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = htmlspecialchars(trim($_POST['email']));
     $message = htmlspecialchars(trim($_POST['message']));
 
-    // Email to receive the contact form submissions
-    $admin_email = "admin@example.com"; // Replace with your email
-    $subject = "New Contact Us Message";
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "gad7";
 
-    // Compose email
-    $email_body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-    // Attempt to send email
-    if (mail($admin_email, $subject, $email_body, "From: $email")) {
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    $sql = "INSERT INTO contact_submissions (name, email, message) VALUES (?, ?, ?)";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sss", $name, $email, $message);
+
+    if ($stmt->execute()) {
         $status = 'success';
     } else {
         $status = 'error';
     }
+    $stmt->close();
+    $conn->close();
 }
 ?>
 
@@ -107,10 +115,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container">
-    <a href="index.php" class="btn btn-info">&#8666; Back to Home</a>
+        <a href="index.php" class="btn btn-info">&#8666; Back to Home</a>
         <h2>Contact Us or Report Us</h2>
         <?php if ($status === 'success'): ?>
-            <div class="success">Thank you for contacting us. We will get back to you soon!</div>
+            <div class="success">Thank you for contacting us. Your message has been submitted successfully!</div>
         <?php elseif ($status === 'error'): ?>
             <div class="error">There was an error submitting your request. Please try again.</div>
         <?php endif; ?>
@@ -124,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="message">Message:</label>
             <textarea id="message" name="message" placeholder="Enter your message or data request" required></textarea>
             
-            <button type="submit">Send Message</button>
+            <button type="submit">Submit Message</button>
         </form>
     </div>
 </body>
